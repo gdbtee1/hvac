@@ -1,0 +1,3221 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --navy: #0b1722;
+  --navy-soft: #122433;
+
+  --blue: #1677ff;
+  --ice: #9fd8ff;
+
+  --heat: #f05a3c;
+
+  --white: #f6f8fa;
+  --steel: #84929c;
+
+  --line: rgba(255,255,255,.14);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--white);
+  color: var(--navy);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+/* =====================================================
+   NAV
+===================================================== */
+
+.hvac-navbar {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 50;
+  color: white;
+}
+
+.hvac-nav-inner {
+  width: min(94%, 1580px);
+  min-height: 116px;
+
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+  gap: 40px;
+
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.hvac-brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  justify-self: start;
+}
+
+.hvac-brand-mark {
+  width: 46px;
+  height: 46px;
+
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 50%;
+
+  position: relative;
+}
+
+.hvac-brand-mark span {
+  position: absolute;
+
+  width: 18px;
+  height: 4px;
+
+  left: 50%;
+
+  border-radius: 20px;
+}
+
+.brand-cold {
+  top: 15px;
+
+  background: var(--blue);
+
+  transform:
+    translateX(-70%)
+    rotate(-16deg);
+}
+
+.brand-hot {
+  bottom: 14px;
+
+  background: var(--heat);
+
+  transform:
+    translateX(-30%)
+    rotate(-16deg);
+}
+
+.hvac-brand strong {
+  display: block;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+}
+
+.hvac-brand > div:last-child > span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: rgba(255,255,255,.5);
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: .25em;
+}
+
+.hvac-desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(24px, 2.5vw, 42px);
+
+  white-space: nowrap;
+}
+
+.hvac-desktop-nav a {
+  position: relative;
+
+  padding: 13px 0;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+
+  color: rgba(255,255,255,.72);
+}
+
+.hvac-desktop-nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 4px;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--blue);
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform .3s ease;
+}
+
+.hvac-desktop-nav a:hover::after,
+.hvac-desktop-nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.hvac-desktop-nav a:hover,
+.hvac-desktop-nav a.active {
+  color: white;
+}
+
+.hvac-nav-actions {
+  justify-self: end;
+
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+}
+
+.hvac-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.hvac-service-button {
+  min-height: 54px;
+
+  padding: 0 22px;
+
+  background: white;
+  color: var(--navy);
+
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.hvac-menu-button {
+  display: none;
+
+  background: transparent;
+  color: white;
+
+  border: 1px solid rgba(255,255,255,.22);
+
+  width: 48px;
+  height: 48px;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hvac-hero {
+  min-height: 100svh;
+
+  position: relative;
+
+  background: var(--navy);
+
+  color: white;
+
+  overflow: hidden;
+}
+
+.hvac-hero-photo {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    url("https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=2200&q=90")
+    center / cover no-repeat;
+}
+
+.hvac-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6,16,24,.96) 0%,
+      rgba(6,16,24,.82) 42%,
+      rgba(6,16,24,.36) 75%,
+      rgba(6,16,24,.18) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(6,16,24,.95),
+      transparent 48%
+    );
+}
+
+/* AIRFLOW */
+
+.airflow-field {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+.airflow {
+  position: absolute;
+
+  left: -35%;
+
+  width: 55%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(159,216,255,.55),
+      transparent
+    );
+
+  filter: blur(.2px);
+
+  animation: airflowMove 8s linear infinite;
+}
+
+.airflow::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  top: -2px;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--ice);
+
+  box-shadow: 0 0 20px var(--blue);
+}
+
+.airflow-1 {
+  top: 28%;
+}
+
+.airflow-2 {
+  top: 37%;
+  animation-delay: -3s;
+  opacity: .5;
+}
+
+.airflow-3 {
+  top: 47%;
+  animation-delay: -6s;
+  opacity: .35;
+}
+
+.airflow-4 {
+  top: 57%;
+  animation-delay: -1.5s;
+  opacity: .25;
+}
+
+@keyframes airflowMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(260%);
+  }
+}
+
+.hvac-hero-content {
+  position: relative;
+  z-index: 4;
+
+  min-height: calc(100svh - 150px);
+
+  width: min(92%, 1500px);
+
+  margin: auto;
+
+  padding-top: 185px;
+  padding-bottom: 190px;
+
+  display: grid;
+  grid-template-columns: 1fr .65fr;
+
+  gap: 90px;
+
+  align-items: center;
+}
+
+.hvac-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  margin-bottom: 30px;
+
+  color: var(--ice);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .22em;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  background: var(--blue);
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 18px var(--blue);
+}
+
+.hvac-hero-copy h1 {
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(64px, 7vw, 118px);
+  line-height: .9;
+
+  font-weight: 700;
+
+  letter-spacing: -.06em;
+}
+
+.hvac-hero-copy > p {
+  margin-top: 30px;
+
+  max-width: 610px;
+
+  color: rgba(255,255,255,.65);
+
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.hvac-hero-actions {
+  margin-top: 38px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 25px;
+}
+
+.hvac-primary {
+  min-height: 64px;
+
+  padding: 0 26px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 32px;
+
+  background: var(--blue);
+  color: white;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.hvac-secondary {
+  min-height: 64px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 0 4px;
+
+  border-bottom: 1px solid rgba(255,255,255,.22);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+/* CLIMATE CONSOLE */
+
+.climate-console {
+  justify-self: end;
+
+  width: min(100%, 440px);
+
+  padding: 28px;
+
+  background: rgba(8,21,31,.72);
+
+  border: 1px solid rgba(159,216,255,.22);
+
+  backdrop-filter: blur(16px);
+
+  box-shadow: 0 25px 80px rgba(0,0,0,.2);
+}
+
+.console-top {
+  display: flex;
+  justify-content: space-between;
+
+  color: rgba(255,255,255,.45);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.console-top span:last-child {
+  color: var(--ice);
+}
+
+.temperature-display {
+  margin-top: 34px;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+.temperature-display > span {
+  font-family: "Manrope", sans-serif;
+
+  font-size: 118px;
+  line-height: .8;
+
+  font-weight: 500;
+  letter-spacing: -.09em;
+}
+
+.temperature-display sup {
+  color: var(--ice);
+
+  font-size: 34px;
+  line-height: 1;
+}
+
+.climate-console > p {
+  margin-top: 18px;
+
+  color: rgba(255,255,255,.4);
+
+  font-size: 7px;
+  letter-spacing: .2em;
+}
+
+.temperature-track {
+  margin-top: 32px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  height: 6px;
+}
+
+.temperature-track div {
+  position: relative;
+}
+
+.temperature-track span {
+  position: absolute;
+
+  top: 15px;
+
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .14em;
+
+  color: rgba(255,255,255,.38);
+}
+
+.heat-zone {
+  background: linear-gradient(90deg, var(--heat), #e9a26f);
+}
+
+.comfort-zone {
+  background: #e9edef;
+}
+
+.cool-zone {
+  background: linear-gradient(90deg, var(--ice), var(--blue));
+}
+
+.console-stats {
+  margin-top: 55px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.console-stats div {
+  padding: 20px 12px 0;
+}
+
+.console-stats div:first-child {
+  padding-left: 0;
+}
+
+.console-stats span {
+  display: block;
+
+  color: rgba(255,255,255,.35);
+
+  font-size: 6px;
+  letter-spacing: .15em;
+}
+
+.console-stats strong {
+  display: block;
+
+  margin-top: 7px;
+
+  font-size: 12px;
+}
+
+/* BOTTOM NAV */
+
+.hvac-hero-bottom {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 4%;
+  right: 4%;
+  bottom: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  border-top: 1px solid var(--line);
+}
+
+.hvac-hero-bottom a {
+  min-height: 125px;
+
+  padding: 25px 28px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-right: 1px solid var(--line);
+
+  transition:
+    background .3s ease,
+    transform .3s ease;
+}
+
+.hvac-hero-bottom a:hover {
+  background: rgba(22,119,255,.1);
+}
+
+.hvac-hero-bottom span {
+  color: var(--blue);
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.hvac-hero-bottom strong {
+  margin-top: 12px;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 18px;
+}
+
+.hvac-hero-bottom small {
+  margin-top: 5px;
+
+  color: rgba(255,255,255,.42);
+
+  font-size: 7px;
+  letter-spacing: .1em;
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.hvac-mobile-menu {
+  display: none;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+
+  .hvac-nav-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .hvac-desktop-nav,
+  .hvac-service-button,
+  .hvac-phone {
+    display: none;
+  }
+
+  .hvac-menu-button {
+    display: grid;
+    place-items: center;
+  }
+
+  .hvac-hero-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .climate-console {
+    justify-self: start;
+  }
+
+  .hvac-mobile-menu {
+    display: flex;
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 999;
+
+    flex-direction: column;
+
+    background: var(--navy);
+    color: white;
+
+    transform: translateX(100%);
+
+    transition: transform .45s cubic-bezier(.76,0,.24,1);
+
+    overflow: hidden;
+  }
+
+  .hvac-mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  .hvac-mobile-top {
+    min-height: 90px;
+
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .hvac-mobile-close {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid rgba(255,255,255,.2);
+  }
+
+  .hvac-mobile-links {
+    padding: 35px 22px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  .hvac-mobile-links a {
+    min-height: 75px;
+
+    display: grid;
+    grid-template-columns: 40px 1fr;
+
+    align-items: center;
+
+    border-bottom: 1px solid rgba(255,255,255,.1);
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: clamp(31px, 8vw, 50px);
+    font-weight: 700;
+
+    letter-spacing: -.04em;
+  }
+
+  .hvac-mobile-links span {
+    color: var(--blue);
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: 7px;
+    letter-spacing: .14em;
+  }
+
+  .hvac-mobile-bottom {
+    margin-top: auto;
+
+    padding: 25px 22px 30px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    align-items: end;
+    gap: 30px;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  .hvac-mobile-bottom small {
+    display: block;
+
+    color: rgba(255,255,255,.4);
+
+    font-size: 7px;
+    letter-spacing: .15em;
+  }
+
+  .hvac-mobile-bottom strong {
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 20px;
+  }
+
+  .hvac-mobile-cta {
+    min-height: 58px;
+
+    padding: 0 20px;
+
+    background: var(--blue);
+
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .12em;
+  }
+
+  .mobile-air-line {
+    position: absolute;
+
+    width: 70%;
+    height: 1px;
+
+    left: -60%;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(159,216,255,.26),
+        transparent
+      );
+
+    animation: mobileAir 7s linear infinite;
+  }
+
+  .air-one {
+    top: 32%;
+  }
+
+  .air-two {
+    top: 48%;
+    animation-delay: -3s;
+  }
+
+  .air-three {
+    top: 63%;
+    animation-delay: -5s;
+  }
+
+  @keyframes mobileAir {
+    to {
+      transform: translateX(240%);
+    }
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .hvac-nav-inner {
+    min-height: 78px;
+
+    width: calc(100% - 30px);
+  }
+
+  .hvac-brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hvac-brand strong {
+    font-size: 17px;
+  }
+
+  .hvac-brand > div:last-child > span {
+    font-size: 6px;
+  }
+
+  .hvac-hero-content {
+    width: calc(100% - 32px);
+
+    padding-top: 135px;
+    padding-bottom: 330px;
+  }
+
+  .hvac-hero-copy h1 {
+    font-size: clamp(58px, 17vw, 86px);
+  }
+
+  .hvac-hero-copy > p {
+    font-size: 15px;
+  }
+
+  .hvac-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 10px;
+  }
+
+  .hvac-primary,
+  .hvac-secondary {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .climate-console {
+    width: 100%;
+  }
+
+  .temperature-display > span {
+    font-size: 95px;
+  }
+
+  .hvac-hero-bottom {
+    left: 16px;
+    right: 16px;
+
+    grid-template-columns: 1fr;
+  }
+
+  .hvac-hero-bottom a {
+    min-height: 82px;
+
+    padding: 16px 0;
+
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hvac-mobile-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .hvac-mobile-cta {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 430px) {
+
+  .hvac-brand > div:last-child > span {
+    display: none;
+  }
+
+  .hvac-hero-copy h1 {
+    font-size: 61px;
+  }
+
+  .climate-console {
+    padding: 22px;
+  }
+
+  .console-stats {
+    gap: 4px;
+  }
+}
+
+/* =====================================================
+   HVAC HERO V2 — CONTRACTOR / ATMOSPHERIC
+===================================================== */
+
+.hvac-hero-v2 {
+  min-height: 100svh;
+  position: relative;
+  overflow: hidden;
+  background: #0b1722;
+  color: white;
+}
+
+.hvac-hero-v2-image {
+  position: absolute;
+  inset: 0;
+
+  background:
+    url("https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=2200&q=90")
+    center 45% / cover no-repeat;
+}
+
+.hvac-hero-v2-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,15,23,.95) 0%,
+      rgba(5,15,23,.8) 40%,
+      rgba(5,15,23,.38) 68%,
+      rgba(5,15,23,.16) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(5,15,23,.85),
+      transparent 48%
+    );
+}
+
+/* AIRFLOW */
+
+.hvac-airflow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.air-path {
+  position: absolute;
+
+  left: -40%;
+  width: 62%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(159,216,255,.4),
+      transparent
+    );
+
+  opacity: .55;
+
+  animation: hvacAirMove 9s linear infinite;
+}
+
+.air-path-1 {
+  top: 34%;
+}
+
+.air-path-2 {
+  top: 43%;
+  animation-delay: -3s;
+  opacity: .35;
+}
+
+.air-path-3 {
+  top: 52%;
+  animation-delay: -6s;
+  opacity: .2;
+}
+
+@keyframes hvacAirMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(255%);
+  }
+}
+
+.hvac-hero-v2-inner {
+  position: relative;
+  z-index: 4;
+
+  width: min(92%, 1500px);
+  min-height: 100svh;
+
+  margin: auto;
+
+  padding: 180px 0 160px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hvac-hero-v2-copy {
+  max-width: 780px;
+}
+
+.hvac-hero-v2-kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  color: #9fd8ff;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .22em;
+}
+
+.hvac-hero-v2-kicker > span {
+  width: 38px;
+  height: 1px;
+  background: #1677ff;
+}
+
+.hvac-hero-v2-copy h1 {
+  margin-top: 36px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(66px, 7vw, 118px);
+  line-height: .88;
+
+  font-weight: 700;
+  letter-spacing: -.065em;
+}
+
+.hvac-hero-v2-copy > p {
+  margin-top: 34px;
+
+  max-width: 650px;
+
+  color: rgba(255,255,255,.68);
+
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.hvac-hero-v2-actions {
+  margin-top: 42px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+}
+
+.hvac-main-cta {
+  min-height: 64px;
+
+  padding: 0 28px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 30px;
+
+  background: #1677ff;
+  color: white;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.hvac-call-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid rgba(255,255,255,.28);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* SERVICE RAIL */
+
+.hvac-service-rail {
+  margin-top: 100px;
+
+  display: flex;
+  align-items: center;
+
+  gap: clamp(28px, 4vw, 60px);
+
+  white-space: nowrap;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+}
+
+.hvac-service-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.hvac-service-rail a {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding-bottom: 9px;
+
+  color: rgba(255,255,255,.62);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+
+  transition:
+    color .25s ease,
+    transform .25s ease;
+}
+
+.hvac-service-rail a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: #1677ff;
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform .3s ease;
+}
+
+.hvac-service-rail a:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.hvac-service-rail a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.hvac-service-rail a span {
+  color: #9fd8ff;
+
+  font-size: 7px;
+  letter-spacing: .12em;
+}
+
+/* TEMP STRIP */
+
+.hvac-hero-temp {
+  position: absolute;
+
+  z-index: 4;
+
+  right: 4%;
+  bottom: 36px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  color: rgba(255,255,255,.45);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+.temp-line {
+  width: 180px;
+  height: 2px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.temp-line i {
+  display: block;
+}
+
+.temp-hot {
+  background: #f05a3c;
+}
+
+.temp-neutral {
+  background: rgba(255,255,255,.75);
+}
+
+.temp-cold {
+  background: #1677ff;
+}
+
+/* =====================================================
+   MOBILE HERO
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .hvac-hero-v2-inner {
+    width: calc(100% - 40px);
+
+    padding-top: 145px;
+    padding-bottom: 130px;
+  }
+
+  .hvac-hero-v2-copy {
+    max-width: 680px;
+  }
+
+  .hvac-service-rail {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .hvac-hero-v2 {
+    min-height: auto;
+  }
+
+  .hvac-hero-v2-image {
+    background-position: 58% center;
+  }
+
+  .hvac-hero-v2-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5,15,23,.88) 0%,
+        rgba(5,15,23,.68) 48%,
+        rgba(5,15,23,.94) 100%
+      );
+  }
+
+  .hvac-hero-v2-inner {
+    width: calc(100% - 32px);
+
+    min-height: 880px;
+
+    padding-top: 125px;
+    padding-bottom: 90px;
+  }
+
+  .hvac-hero-v2-kicker {
+    font-size: 7px;
+    line-height: 1.5;
+  }
+
+  .hvac-hero-v2-copy h1 {
+    margin-top: 26px;
+
+    font-size: clamp(58px, 17vw, 83px);
+    line-height: .91;
+  }
+
+  .hvac-hero-v2-copy > p {
+    margin-top: 25px;
+
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .hvac-hero-v2-actions {
+    margin-top: 32px;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 16px;
+  }
+
+  .hvac-main-cta {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .hvac-call-link {
+    width: fit-content;
+  }
+
+  .hvac-service-rail {
+    margin-top: 65px;
+
+    width: calc(100vw - 16px);
+
+    gap: 28px;
+
+    padding-right: 35px;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hvac-service-rail a {
+    flex-shrink: 0;
+
+    font-size: 9px;
+  }
+
+  .hvac-hero-temp {
+    display: none;
+  }
+
+  .air-path {
+    animation-duration: 12s;
+    opacity: .22;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .air-path {
+    animation: none;
+  }
+}
+
+/* =====================================================
+   HOME CLIMATE
+===================================================== */
+
+.home-climate {
+  position: relative;
+
+  padding: 130px 4vw 150px;
+
+  background: #f3f5f6;
+  color: #0b1722;
+
+  overflow: hidden;
+
+  transition:
+    background .6s ease,
+    color .6s ease;
+}
+
+.home-climate-head {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 90px;
+  align-items: end;
+
+  max-width: 1500px;
+  margin: auto;
+}
+
+.home-climate-head > div:first-child > span {
+  display: block;
+
+  margin-bottom: 26px;
+
+  color: #1677ff;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .22em;
+}
+
+.home-climate h2 {
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(62px, 6.5vw, 108px);
+  line-height: .88;
+
+  font-weight: 700;
+  letter-spacing: -.06em;
+}
+
+.home-climate-intro {
+  padding-bottom: 8px;
+}
+
+.home-climate-intro > p {
+  max-width: 540px;
+
+  color: #75828b;
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* MODE NAV — TEXT ONLY */
+
+.climate-mode-nav {
+  margin-top: 38px;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 12px 30px;
+}
+
+.climate-mode-nav button {
+  position: relative;
+
+  padding: 0 0 10px;
+
+  border: 0;
+  background: transparent;
+
+  color: #7b878f;
+
+  cursor: pointer;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+
+  transition: color .25s ease;
+}
+
+.climate-mode-nav button span {
+  margin-right: 8px;
+
+  color: #9aa4aa;
+
+  font-size: 7px;
+}
+
+.climate-mode-nav button::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 1px;
+
+  background: #1677ff;
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform .3s ease;
+}
+
+.climate-mode-nav button.active {
+  color: #0b1722;
+}
+
+.climate-mode-nav button.active::after,
+.climate-mode-nav button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* SCENE */
+
+.climate-scene {
+  position: relative;
+
+  max-width: 1500px;
+  min-height: 720px;
+
+  margin: 100px auto 0;
+
+  overflow: hidden;
+}
+
+.climate-scene img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 1s cubic-bezier(.2,.7,.2,1),
+    filter .6s ease;
+}
+
+.climate-scene:hover img {
+  transform: scale(1.015);
+}
+
+.climate-scene-shade {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7,17,25,.72) 0%,
+      rgba(7,17,25,.2) 55%,
+      rgba(7,17,25,.05) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(7,17,25,.55),
+      transparent 55%
+    );
+
+  transition: background .6s ease;
+}
+
+/* FLOATING COPY */
+
+.climate-scene-copy {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 55px;
+  bottom: 55px;
+
+  max-width: 580px;
+
+  color: white;
+}
+
+.climate-scene-copy > span {
+  color: #9fd8ff;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+
+.climate-scene-copy h3 {
+  margin-top: 18px;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(42px, 4vw, 68px);
+  line-height: .94;
+
+  letter-spacing: -.045em;
+}
+
+.climate-scene-copy p {
+  margin-top: 20px;
+
+  max-width: 520px;
+
+  color: rgba(255,255,255,.7);
+
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.climate-scene-copy a {
+  margin-top: 28px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 22px;
+
+  padding-bottom: 9px;
+
+  border-bottom: 1px solid rgba(255,255,255,.25);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+/* ANNOTATIONS */
+
+.climate-annotation {
+  position: absolute;
+
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: rgba(255,255,255,.75);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.climate-annotation span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #9fd8ff;
+
+  box-shadow: 0 0 18px rgba(159,216,255,.7);
+}
+
+.annotation-supply {
+  top: 23%;
+  left: 17%;
+}
+
+.annotation-return {
+  top: 40%;
+  right: 14%;
+}
+
+.annotation-temp {
+  top: 64%;
+  right: 24%;
+}
+
+/* AIR */
+
+.climate-air {
+  position: absolute;
+
+  z-index: 3;
+
+  width: 42%;
+  height: 1px;
+
+  left: -25%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(159,216,255,.6),
+      transparent
+    );
+
+  animation: climateAirflow 7s linear infinite;
+
+  pointer-events: none;
+}
+
+.climate-air-one {
+  top: 30%;
+}
+
+.climate-air-two {
+  top: 43%;
+  animation-delay: -2.5s;
+}
+
+.climate-air-three {
+  top: 55%;
+  animation-delay: -5s;
+}
+
+@keyframes climateAirflow {
+  to {
+    transform: translateX(320%);
+  }
+}
+
+/* HEATING STATE */
+
+.home-climate.state-heating .climate-scene-shade {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20,15,12,.68),
+      rgba(70,28,16,.14) 70%
+    ),
+    radial-gradient(
+      circle at 76% 50%,
+      rgba(240,90,60,.22),
+      transparent 40%
+    );
+}
+
+.home-climate.state-heating .climate-air {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(240,90,60,.55),
+      transparent
+    );
+
+  filter: blur(1px);
+}
+
+.home-climate.state-heating .climate-annotation span {
+  background: #f05a3c;
+  box-shadow: 0 0 18px rgba(240,90,60,.7);
+}
+
+/* COOLING */
+
+.home-climate.state-cooling .climate-scene img {
+  filter: saturate(.92) contrast(1.03);
+}
+
+/* AIRFLOW */
+
+.home-climate.state-airflow .climate-air {
+  animation-duration: 4.5s;
+}
+
+/* AIR QUALITY */
+
+.home-climate.state-quality .climate-air {
+  opacity: .35;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .home-climate {
+    padding: 95px 20px 110px;
+  }
+
+  .home-climate-head {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .home-climate h2 {
+    font-size: clamp(58px, 15vw, 88px);
+  }
+
+  .home-climate-intro > p {
+    font-size: 15px;
+  }
+
+  .climate-scene {
+    margin-top: 65px;
+    min-height: 620px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .home-climate {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .climate-mode-nav {
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    padding-bottom: 6px;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .climate-mode-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .climate-mode-nav button {
+    flex-shrink: 0;
+  }
+
+  .climate-scene {
+    min-height: 620px;
+  }
+
+  .climate-scene img {
+    object-position: center;
+  }
+
+  .climate-scene-copy {
+    left: 22px;
+    right: 22px;
+    bottom: 28px;
+  }
+
+  .climate-scene-copy h3 {
+    font-size: 42px;
+  }
+
+  .climate-scene-copy p {
+    font-size: 14px;
+  }
+
+  .annotation-supply {
+    top: 19%;
+    left: 8%;
+  }
+
+  .annotation-return {
+    top: 34%;
+    right: 7%;
+  }
+
+  .annotation-temp {
+    top: 51%;
+    right: 12%;
+  }
+
+  .climate-air {
+    width: 70%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .climate-air {
+    animation: none;
+  }
+}
+
+/* =====================================================
+   NORTHLINE COMFORT JOURNEY
+   Open composition — no cards / no containers
+===================================================== */
+
+.comfort-journey {
+  --journey-blue: #176b87;
+  --journey-air: #9bd8e8;
+  --journey-warm: #d76b45;
+  --journey-dark: #071722;
+  --journey-paper: #f3f1ec;
+
+  overflow: hidden;
+  background: var(--journey-paper);
+}
+
+
+/* =====================================================
+   SCENE 01
+===================================================== */
+
+.comfort-scene {
+  position: relative;
+
+  min-height: 1050px;
+
+  padding: 145px 4vw 120px;
+
+  color: var(--journey-dark);
+}
+
+.comfort-copy {
+  position: relative;
+  z-index: 5;
+
+  width: min(48%, 690px);
+}
+
+.scene-label {
+  display: block;
+
+  color: var(--journey-blue);
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .23em;
+}
+
+.comfort-statement {
+  margin-top: 55px;
+
+  max-width: 470px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  line-height: 1.55;
+
+  color: #66777f;
+}
+
+.comfort-copy h2 {
+  margin-top: 45px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(64px, 6.4vw, 112px);
+  line-height: .88;
+
+  font-weight: 700;
+  letter-spacing: -.065em;
+}
+
+.comfort-body {
+  margin-top: 38px;
+
+  max-width: 550px;
+
+  color: #77868d;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.journey-link {
+  margin-top: 35px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+
+  padding-bottom: 9px;
+
+  border-bottom: 1px solid rgba(7,23,34,.2);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+
+/* PHOTO BLEEDS OUT OF THE PAGE */
+
+.comfort-photo {
+  position: absolute;
+
+  top: 200px;
+  right: -7vw;
+
+  width: 58vw;
+  height: 720px;
+
+  overflow: hidden;
+
+  clip-path: ellipse(76% 64% at 62% 50%);
+}
+
+.comfort-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+
+.comfort-photo:hover img {
+  transform: scale(1.018);
+}
+
+.comfort-photo-shade {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(243,241,236,.72),
+      transparent 30%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(7,23,34,.12),
+      transparent 45%
+    );
+}
+
+
+/* AIR MARKERS */
+
+.air-marker {
+  position: absolute;
+
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: white;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .2em;
+
+  text-shadow: 0 1px 8px rgba(0,0,0,.28);
+}
+
+.air-marker i {
+  width: 7px;
+  height: 7px;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: var(--journey-air);
+
+  box-shadow:
+    0 0 0 5px rgba(155,216,232,.12),
+    0 0 20px rgba(155,216,232,.7);
+}
+
+.marker-supply {
+  left: 34%;
+  top: 28%;
+}
+
+.marker-return {
+  right: 12%;
+  top: 35%;
+}
+
+.marker-room {
+  right: 23%;
+  bottom: 22%;
+}
+
+
+/* =====================================================
+   CONTINUOUS AIR PATH
+===================================================== */
+
+.journey-airflow {
+  position: absolute;
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  overflow: visible;
+}
+
+.journey-airflow path {
+  fill: none;
+
+  stroke: var(--journey-air);
+  stroke-width: 1.4;
+
+  opacity: .42;
+
+  stroke-dasharray: .12 .88;
+
+  animation: airflowTravel 7s linear infinite;
+}
+
+.journey-airflow-one {
+  width: 90%;
+  height: 420px;
+
+  left: 6%;
+  top: 310px;
+}
+
+@keyframes airflowTravel {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -1;
+  }
+}
+
+
+/* =====================================================
+   TRANSITION
+===================================================== */
+
+.journey-transition {
+  min-height: 190px;
+
+  padding: 0 4vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 30px;
+
+  background: var(--journey-paper);
+
+  color: #819097;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .21em;
+}
+
+.transition-line {
+  width: min(38vw, 500px);
+  height: 1px;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(23,107,135,.15),
+      rgba(23,107,135,.7),
+      rgba(215,107,69,.5)
+    );
+}
+
+.transition-line i {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--journey-blue);
+
+  transform: translateY(-50%);
+
+  box-shadow: 0 0 15px rgba(23,107,135,.5);
+
+  animation: transitionDot 5s ease-in-out infinite;
+}
+
+@keyframes transitionDot {
+  0% {
+    left: 0;
+  }
+
+  50% {
+    left: calc(100% - 7px);
+    background: var(--journey-warm);
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+
+/* =====================================================
+   SCENE 02 — MECHANICAL
+===================================================== */
+
+.mechanical-scene {
+  position: relative;
+
+  min-height: 1000px;
+
+  background: var(--journey-dark);
+  color: white;
+
+  overflow: hidden;
+}
+
+.mechanical-photo {
+  position: absolute;
+
+  left: -5vw;
+  top: 90px;
+
+  width: 58vw;
+  height: 780px;
+
+  overflow: hidden;
+
+  clip-path: polygon(
+    0 0,
+    88% 0,
+    100% 18%,
+    92% 100%,
+    0 100%
+  );
+}
+
+.mechanical-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.mechanical-photo-shade {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7,23,34,.1),
+      rgba(7,23,34,.18) 60%,
+      rgba(7,23,34,.82)
+    );
+}
+
+
+/* EQUIPMENT ANNOTATIONS */
+
+.mechanical-note {
+  position: absolute;
+
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: rgba(255,255,255,.68);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.mechanical-note span {
+  color: var(--journey-air);
+}
+
+.note-one {
+  left: 13%;
+  top: 24%;
+}
+
+.note-two {
+  right: 13%;
+  top: 46%;
+}
+
+.note-three {
+  left: 24%;
+  bottom: 16%;
+}
+
+
+/* COPY */
+
+.mechanical-copy {
+  position: relative;
+  z-index: 5;
+
+  width: min(39%, 610px);
+
+  margin-left: auto;
+
+  padding:
+    170px
+    6vw
+    130px
+    0;
+}
+
+.mechanical-copy h2 {
+  margin-top: 32px;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(60px, 5.8vw, 100px);
+  line-height: .89;
+
+  letter-spacing: -.06em;
+}
+
+.mechanical-copy > p {
+  margin-top: 35px;
+
+  max-width: 540px;
+
+  color: rgba(255,255,255,.55);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* SIMPLE TEXT LINKS — NO BOXES */
+
+.mechanical-links {
+  margin-top: 50px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.mechanical-links a {
+  min-height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid rgba(255,255,255,.15);
+
+  color: rgba(255,255,255,.65);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+
+  transition:
+    color .25s ease,
+    padding .25s ease;
+}
+
+.mechanical-links a:hover {
+  color: white;
+  padding-left: 10px;
+}
+
+.journey-airflow-two {
+  width: 90%;
+  height: 500px;
+
+  left: 4%;
+  bottom: 60px;
+}
+
+.mechanical-scene .journey-airflow path {
+  opacity: .2;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .comfort-scene {
+    min-height: 1250px;
+
+    padding: 110px 30px;
+  }
+
+  .comfort-copy {
+    width: 70%;
+  }
+
+  .comfort-photo {
+    top: 570px;
+    right: -8vw;
+
+    width: 90vw;
+    height: 610px;
+  }
+
+  .journey-airflow-one {
+    top: 600px;
+  }
+
+  .mechanical-scene {
+    min-height: 1250px;
+  }
+
+  .mechanical-photo {
+    left: -8vw;
+    top: 100px;
+
+    width: 88vw;
+    height: 650px;
+  }
+
+  .mechanical-copy {
+    width: 70%;
+
+    margin-left: 24%;
+
+    padding:
+      810px
+      30px
+      100px
+      0;
+  }
+}
+
+
+/* =====================================================
+   MOBILE — DIFFERENT COMPOSITION
+===================================================== */
+
+@media (max-width: 650px) {
+
+  .comfort-scene {
+    min-height: auto;
+
+    padding:
+      90px
+      16px
+      0;
+  }
+
+  .comfort-copy {
+    width: 100%;
+  }
+
+  .scene-label {
+    font-size: 7px;
+  }
+
+  .comfort-statement {
+    margin-top: 35px;
+
+    max-width: 320px;
+
+    font-size: 17px;
+  }
+
+  .comfort-copy h2 {
+    margin-top: 30px;
+
+    font-size: clamp(52px, 14vw, 70px);
+  }
+
+  .comfort-body {
+    margin-top: 28px;
+
+    font-size: 14px;
+  }
+
+  .comfort-photo {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    width: calc(100% + 32px);
+    height: 560px;
+
+    margin:
+      65px
+      -16px
+      0;
+
+    clip-path: none;
+  }
+
+  .comfort-photo-shade {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(7,23,34,.45),
+        transparent 60%
+      );
+  }
+
+  .marker-supply {
+    left: 8%;
+    top: 21%;
+  }
+
+  .marker-return {
+    right: 7%;
+    top: 36%;
+  }
+
+  .marker-room {
+    right: 12%;
+    bottom: 18%;
+  }
+
+  .journey-airflow-one {
+    top: auto;
+    bottom: 60px;
+
+    width: 140%;
+    height: 320px;
+
+    left: -20%;
+  }
+
+
+  /* TRANSITION */
+
+  .journey-transition {
+    min-height: 135px;
+
+    padding: 0 16px;
+
+    gap: 14px;
+
+    font-size: 6px;
+  }
+
+  .transition-line {
+    flex: 1;
+  }
+
+
+  /* MECHANICAL MOBILE */
+
+  .mechanical-scene {
+    min-height: auto;
+
+    padding-top: 0;
+  }
+
+  .mechanical-photo {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: 100%;
+    height: 570px;
+
+    clip-path: none;
+  }
+
+  .mechanical-photo-shade {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(7,23,34,.78),
+        transparent 62%
+      );
+  }
+
+  .mechanical-copy {
+    width: 100%;
+
+    margin: 0;
+
+    padding:
+      75px
+      16px
+      100px;
+  }
+
+  .mechanical-copy h2 {
+    font-size: clamp(50px, 14vw, 70px);
+  }
+
+  .mechanical-copy > p {
+    font-size: 14px;
+  }
+
+  .note-one {
+    left: 8%;
+    top: 20%;
+  }
+
+  .note-two {
+    right: 7%;
+    top: 45%;
+  }
+
+  .note-three {
+    left: 12%;
+    bottom: 15%;
+  }
+
+  .journey-airflow-two {
+    display: none;
+  }
+}
+
+
+/* =====================================================
+   MOTION ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .journey-airflow path,
+  .transition-line i {
+    animation: none;
+  }
+}
+
+/* =====================================================
+   COOLING EXPERIENCE
+===================================================== */
+
+.cooling-experience {
+  position: relative;
+  min-height: 920px;
+  overflow: hidden;
+
+  background: #08151d;
+  color: white;
+}
+
+.cooling-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background:
+    url("https://images.unsplash.com/photo-1621905252472-943afaa20e20?auto=format&fit=crop&w=2200&q=90")
+    center / cover no-repeat;
+
+  transform: scale(1.04);
+}
+
+.cooling-vignette {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4,14,21,.92) 0%,
+      rgba(4,14,21,.7) 42%,
+      rgba(4,14,21,.28) 72%,
+      rgba(4,14,21,.18) 100%
+    ),
+    radial-gradient(
+      circle at 72% 48%,
+      rgba(95,184,210,.13),
+      transparent 34%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(4,14,21,.86),
+      transparent 52%
+    );
+}
+
+/* AIRFIELD */
+
+.cooling-airfield {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cooling-stream {
+  position: absolute;
+  width: 118%;
+  height: 58%;
+  left: -10%;
+  overflow: visible;
+}
+
+.cooling-stream path {
+  fill: none;
+  stroke: rgba(178,226,240,.42);
+  stroke-width: 2;
+  stroke-linecap: round;
+
+  stroke-dasharray: 0.02 0.06;
+  stroke-dashoffset: 0;
+
+  filter: blur(.15px);
+
+  animation:
+    coolingDash 5.5s linear infinite,
+    coolingBreathe 6s ease-in-out infinite;
+}
+
+.cooling-stream-a {
+  top: 12%;
+}
+
+.cooling-stream-b {
+  top: 24%;
+  opacity: .7;
+}
+
+.cooling-stream-c {
+  top: 2%;
+  opacity: .45;
+}
+
+.cooling-stream-b path {
+  animation-duration: 7.5s, 8s;
+}
+
+.cooling-stream-c path {
+  animation-duration: 10s, 10s;
+}
+
+@keyframes coolingDash {
+  to {
+    stroke-dashoffset: -.32;
+  }
+}
+
+@keyframes coolingBreathe {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* MIST */
+
+.cooling-mist {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(60px);
+
+  opacity: .24;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(180,231,244,.46),
+      rgba(100,185,210,.16) 45%,
+      transparent 72%
+    );
+
+  animation: mistDrift 12s ease-in-out infinite;
+}
+
+.cooling-mist-one {
+  width: 520px;
+  height: 230px;
+
+  left: 48%;
+  top: 34%;
+}
+
+.cooling-mist-two {
+  width: 420px;
+  height: 180px;
+
+  left: 65%;
+  top: 54%;
+
+  opacity: .14;
+  animation-delay: -6s;
+}
+
+@keyframes mistDrift {
+  0%, 100% {
+    transform: translate3d(-15px, 5px, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(35px, -12px, 0) scale(1.08);
+  }
+}
+
+/* PARTICLES */
+
+.cooling-particles {
+  position: absolute;
+  inset: 0;
+}
+
+.cooling-particles i {
+  --x: calc((var(--i) * 13) % 100);
+  --y: calc((var(--i) * 29) % 80);
+
+  position: absolute;
+
+  left: calc(var(--x) * 1%);
+  top: calc(12% + (var(--y) * 1%));
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: rgba(205,239,248,.55);
+
+  opacity: .25;
+
+  animation: particleFlow 9s linear infinite;
+  animation-delay: calc(var(--i) * -.55s);
+}
+
+@keyframes particleFlow {
+  from {
+    transform: translate3d(-40px, 12px, 0);
+    opacity: 0;
+  }
+
+  18% {
+    opacity: .28;
+  }
+
+  82% {
+    opacity: .18;
+  }
+
+  to {
+    transform: translate3d(260px, -30px, 0);
+    opacity: 0;
+  }
+}
+
+/* CONTENT */
+
+.cooling-inner {
+  position: relative;
+  z-index: 3;
+
+  width: min(92%, 1500px);
+  min-height: 920px;
+
+  margin: auto;
+  padding: 78px 0 90px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.cooling-topline {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+
+  color: rgba(255,255,255,.42);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+
+.cooling-topline span:nth-child(2) {
+  color: #a8dce9;
+}
+
+.cooling-copy {
+  margin-top: auto;
+  margin-bottom: 65px;
+
+  max-width: 760px;
+}
+
+.cooling-kicker {
+  display: block;
+
+  color: #9bd8e8;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .22em;
+}
+
+.cooling-copy h2 {
+  margin-top: 26px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(62px, 6.5vw, 108px);
+  line-height: .9;
+
+  letter-spacing: -.06em;
+  font-weight: 700;
+}
+
+.cooling-copy p {
+  margin-top: 30px;
+
+  max-width: 620px;
+
+  color: rgba(255,255,255,.63);
+
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.cooling-actions {
+  margin-top: 38px;
+
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.cooling-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+
+  padding-bottom: 9px;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.cooling-primary-link {
+  color: white;
+  border-bottom: 1px solid rgba(155,216,232,.48);
+}
+
+.cooling-secondary-link {
+  color: rgba(255,255,255,.58);
+  border-bottom: 1px solid rgba(255,255,255,.16);
+}
+
+/* FLOATING READOUT — NO BOX */
+
+.cooling-readout {
+  position: absolute;
+
+  right: 5%;
+  top: 28%;
+
+  text-align: right;
+}
+
+.cooling-readout span {
+  display: block;
+
+  color: rgba(255,255,255,.42);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+
+.cooling-readout strong {
+  display: block;
+
+  margin-top: 8px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 76px;
+  line-height: .9;
+
+  letter-spacing: -.07em;
+}
+
+.cooling-readout small {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #9bd8e8;
+
+  font-size: 7px;
+  letter-spacing: .18em;
+}
+
+/* DIRECTION MARKERS */
+
+.cooling-direction {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: rgba(255,255,255,.55);
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.cooling-direction span {
+  width: 36px;
+  height: 1px;
+
+  background: #9bd8e8;
+}
+
+.cooling-direction-one {
+  right: 22%;
+  top: 46%;
+}
+
+.cooling-direction-two {
+  right: 9%;
+  top: 58%;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .cooling-experience {
+    min-height: 860px;
+  }
+
+  .cooling-backdrop {
+    background-position: 60% center;
+  }
+
+  .cooling-vignette {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(4,14,21,.55) 0%,
+        rgba(4,14,21,.28) 28%,
+        rgba(4,14,21,.88) 76%,
+        rgba(4,14,21,.96) 100%
+      ),
+      radial-gradient(
+        circle at 72% 34%,
+        rgba(95,184,210,.14),
+        transparent 36%
+      );
+  }
+
+  .cooling-inner {
+    width: calc(100% - 32px);
+    min-height: 860px;
+
+    padding: 36px 0 60px;
+  }
+
+  .cooling-topline {
+    grid-template-columns: auto 1fr;
+  }
+
+  .cooling-topline span:last-child {
+    display: none;
+  }
+
+  .cooling-copy {
+    margin-top: auto;
+    margin-bottom: 0;
+
+    max-width: none;
+  }
+
+  .cooling-copy h2 {
+    font-size: clamp(50px, 14vw, 72px);
+    line-height: .92;
+  }
+
+  .cooling-copy p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .cooling-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .cooling-readout {
+    top: 22%;
+    right: 16px;
+  }
+
+  .cooling-readout strong {
+    font-size: 56px;
+  }
+
+  .cooling-direction-one {
+    right: auto;
+    left: 12%;
+    top: 40%;
+  }
+
+  .cooling-direction-two {
+    right: 10%;
+    top: 50%;
+  }
+
+  .cooling-stream {
+    width: 170%;
+    left: -38%;
+    height: 48%;
+  }
+
+  .cooling-stream-a {
+    top: 14%;
+  }
+
+  .cooling-stream-b {
+    top: 24%;
+  }
+
+  .cooling-stream-c {
+    top: 6%;
+  }
+
+  .cooling-mist-one {
+    width: 340px;
+    height: 150px;
+
+    left: 22%;
+    top: 34%;
+  }
+
+  .cooling-mist-two {
+    width: 260px;
+    height: 120px;
+
+    left: 50%;
+    top: 48%;
+  }
+}
+
+/* lighter motion for smaller devices */
+
+@media (max-width: 480px) {
+  .cooling-particles i:nth-child(even) {
+    display: none;
+  }
+
+  .cooling-stream-c {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cooling-stream path,
+  .cooling-mist,
+  .cooling-particles i {
+    animation: none;
+  }
+}
